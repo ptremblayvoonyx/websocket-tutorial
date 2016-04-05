@@ -4,51 +4,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <c:url value="/login" var="loginUrl" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>innkeeper: <c:out value="${pageTitle}" />
-</title>
+<title>WebSocket</title>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <c:url var="bootstrapcssUrl" value="/resources/css/bootstrap.min.css" />
 <link href="${bootstrapcssUrl}" rel="stylesheet" />
 <style>
 </style>
 
-
-
 </head>
 <body>
-	<div class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target=".navbar-inverse-collapse">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<c:url var="welcomeUrl" value="/" />
-			<a class="navbar-brand" href="${welcomeUrl}">Websocket</a>
-		</div>
 
-		<div class="navbar-collapse collapse navbar-inverse-collapse">
-			<ul class="nav navbar-nav navbar-right">
-
-				<sec:authorize access="authenticated" var="authenticated" />
-				<c:choose>
-					<c:when test="${authenticated}">
-						<c:url var="logoutUrl" value="/logout" />
-						<li><a id="navLogoutLink" href="${logoutUrl}">Logout</a></li>
-					</c:when>
-					<c:otherwise>
-						<c:url var="loginUrl" value="/login" />
-						<li><a id="navLoginLink" href="${loginUrl}">Login</a></li>
-					</c:otherwise>
-				</c:choose>
-			</ul>
-		</div>
-	</div>
+	<t:navbar />
 
 	<H1>
 		<sec:authentication property="name" />
@@ -104,6 +76,6 @@
 
 	</div>
 	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 </body>
 </html>
