@@ -21,10 +21,10 @@ public class TodoController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
 
-        taskService.echo();
         model.addAttribute("tasks", taskService.findAllTasks());
         model.addAttribute("task", new Task());
         return "todo/list";
+
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -32,7 +32,7 @@ public class TodoController {
         if (task != null && !task.getName().isEmpty()) {
             taskService.addTask(task);
         }
-
+        taskService.echo();
         return "redirect:list";
     }
 
