@@ -1,24 +1,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page session="true"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Echo<c:out value="${pageTitle}" />
-</title>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<c:url var="cssUrl" value="/resources/css/bootstrap.min.css" />
-<link href="${cssUrl}" rel="stylesheet" />
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
-<style>
-</style>
+<t:layout pageTitle="Denied">
 
+	<jsp:attribute name="header">
+    </jsp:attribute>
 
-</head>
-<body>
-	<div class="alert alert-warning">
-		<h4>Oups! AccÃ¨s refusÃ©...</h4>
-		<p>${msg}</p>
-	</div>
+	<jsp:attribute name="footer">
+    </jsp:attribute>
 
-</body>
-</html>
+	<jsp:body>
+		<div class="container">
+			<div class="alert alert-warning col-lg-6">
+			<h4>Oups! Accès refusé...</h4>
+			<p>${msg}</p>
+			</div>
+		</div>
+    </jsp:body>
+
+</t:layout>

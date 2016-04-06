@@ -8,14 +8,11 @@
 	<jsp:attribute name="header">
 		<t:navbar />
     </jsp:attribute>
-    
+
 	<jsp:attribute name="footer">
     </jsp:attribute>
-    
+
 	<jsp:body>
-		<H1>
-			<sec:authentication property="name" />
-		</H1>
 		<div class="container">
 	
 			<c:if test="${message != null}">
@@ -47,6 +44,7 @@
 								<div class="col-lg-10">
 									<input type="text" class="form-control" id="username"
 										name="username" placeholder="Username">
+								
 								</div>
 							</div>
 							<div class="form-group">
@@ -54,6 +52,7 @@
 								<div class="col-lg-10">
 									<input type="password" class="form-control" id="password"
 										name="password" placeholder="Password">
+								
 								</div>
 							</div>
 							<div class="form-group">
@@ -61,9 +60,16 @@
 									<button type="submit" class="btn btn-primary">Login</button>
 								</div>
 							</div>
-							<sec:csrfInput/>
+							<sec:csrfInput />
 						</fieldset>
 					</form>
+					<div class="alert alert-info">
+						<p><strong>Utilisateurs : </strong></p>
+						<ul>
+							<li>patrick / bonjour</li>
+							<li>rejean / bonjour</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 	

@@ -22,53 +22,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan
 public class MvcConfig extends WebMvcConfigurerAdapter/* implements WebSocketConfigurer */ {
 
-    // @Override
-    // public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-    // super.configureDefaultServletHandling(configurer);
-    // configurer.enable(); // so static files (html, js) will not be considered as REST resources.
-    // }
-    //
-    // @Override
-    // public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-    // // see https://groups.google.com/forum/#!topic/atmosphere-framework/uZOrfXl3Bu8
-    // converters.add(new MappingJackson2HttpMessageConverter() {
-    //
-    // @Override
-    // protected void writeInternal(Object object, HttpOutputMessage outputMessage)
-    // throws IOException, HttpMessageNotWritableException {
-    // outputMessage.getHeaders().setContentType(MediaType.APPLICATION_JSON);
-    // super.writeInternal(object, outputMessage);
-    // }
-    // });
-    // }
-    //
-    // @Override
-    // public void addArgumentResolvers(
-    // List<HandlerMethodArgumentResolver> argumentResolvers) {
-    // argumentResolvers.add(new HandlerMethodArgumentResolver() {
-    //
-    // @Override
-    // public boolean supportsParameter(MethodParameter parameter) {
-    // return AtmosphereResource.class.isAssignableFrom(parameter.getParameterType());
-    // }
-    //
-    // @Override
-    // public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
-    // NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
-    //
-    // Meteor m = Meteor.build(webRequest.getNativeRequest(HttpServletRequest.class));
-    // if (m.transport() == TRANSPORT.LONG_POLLING) {
-    // m.resumeOnBroadcast(true).suspend(-1);
-    // } else {
-    // m.suspend(-1);
-    // }
-    // AtmosphereResource resource = m.getAtmosphereResource();
-    // return resource;
-    //
-    // }
-    // });
-    // }
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**")

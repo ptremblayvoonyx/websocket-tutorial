@@ -14,11 +14,10 @@
     </jsp:attribute>
     
 	<jsp:body>
-	    <H1>
-			Current user :
-			<sec:authentication property="name" />
-		</H1>
 		<div class="container">
+			<div class="well well-sm">
+				<h2>Bonjour <sec:authentication property="name" /></h2>
+			</div>
 			<div class="panel panel-default">
 	
 				<div class="panel-body">

@@ -29,19 +29,6 @@ public class WebAppInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic dispatcherServlet = servletContext.addServlet(
                 "dispatcher", new DispatcherServlet(mvcContext));
 
-        // AnnotationConfigWebApplicationContext dispatcherContext = new AnnotationConfigWebApplicationContext();
-
-        // spring servlet, wrapped by atmosphere
-        // Dynamic servlet = servletContext.addServlet("spring-atmosphere",
-        // new MeteorServlet(new DispatcherServlet(mvcContext), "/"));
-        // servlet.setAsyncSupported(true);
-
-        // servlet.setInitParameter(org.atmosphere.cpr.ApplicationConfig.BROADCASTER_CLASS,
-        // DefaultBroadcaster.class.getName());
-        // servlet.setInitParameter(org.atmosphere.cpr.ApplicationConfig.DEFAULT_CONTENT_TYPE, "application/json");
-        // servlet.setInitParameter(org.atmosphere.cpr.ApplicationConfig.NO_CACHE_HEADERS, "true");
-        // servlet.setInitParameter(org.atmosphere.cpr.ApplicationConfig.JSR356_MAPPING_PATH, "/sprint-atmosphere");
-
         dispatcherServlet.setLoadOnStartup(1);
         dispatcherServlet.addMapping("/");
 
