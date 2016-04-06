@@ -1,29 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
-<%@ page session="false"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
-<title>Echo<c:out value="${pageTitle}" />
-</title>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<c:url var="cssUrl" value="/resources/css/bootstrap.min.css" />
-<link href="${cssUrl}" rel="stylesheet" />
+<t:layout pageTitle="Echo">
 
-<style>
-</style>
-
-
-</head>
-<body>
-
+	<jsp:attribute name="header">
+    </jsp:attribute>
+    
+	<jsp:attribute name="footer">
+    </jsp:attribute>
+    
+	<jsp:body>
 	<div class="container">
 		<div class="jumbotron">
 			<div class="row">
@@ -53,7 +40,6 @@
 
 	</div>
 
-
 	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/sockjs.min.js"/>"></script>
@@ -71,5 +57,6 @@
      });
 	
 	</script>
-</body>
-</html>
+    </jsp:body>
+
+</t:layout>
