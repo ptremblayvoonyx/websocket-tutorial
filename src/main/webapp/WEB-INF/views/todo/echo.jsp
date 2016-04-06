@@ -17,7 +17,7 @@
 				<div class="col-lg-12">
 					<div class="page-header">
 						<h1 id="taches">
-							Tâche pour
+							Tâches pour
 							<sec:authentication property="name" />
 							:
 						</h1>
@@ -46,10 +46,15 @@
 	<script src="<c:url value="/resources/js/stomp.min.js"/>"></script>
 	<script>
 	
+	 var headerName = "${_csrf.headerName}";
+	 var token = "${_csrf.token}";
+	 var headers = {};
+	 headers[headerName] = token;
+	
 	 var socket = new SockJS("${pageContext.request.contextPath}/stomp");
 	 var stompClient = Stomp.over(socket);
 
-     stompClient.connect({}, function(frame) {
+     stompClient.connect(headers, function(frame) {
        			console.log('Connected: ' + frame);
                 stompClient.subscribe('/user/queue/echo', function(){
                     location.reload()

@@ -15,6 +15,13 @@
 <link href="${cssUrl}" rel="stylesheet" />
 
 <style>
+buttonAsLink {
+    background:none;
+    border:none; 
+    padding:0;
+    /*border is optional*/
+    border-bottom:1px solid #444; 
+}
 </style>
 
 </head>

@@ -29,8 +29,7 @@
 			<sec:authorize access="authenticated" var="authenticated" />
 			<c:choose>
 				<c:when test="${authenticated}">
-					<c:url var="logoutUrl" value="/logout" />
-					<li><a id="navLogoutLink" href="${logoutUrl}">Logout</a></li>
+					<li><a href="#logoutModal" data-toggle="modal">Logout</a></li>
 				</c:when>
 				<c:otherwise>
 					<c:url var="loginUrl" value="/login" />
@@ -38,5 +37,30 @@
 				</c:otherwise>
 			</c:choose>
 		</ul>
+	</div>
+	<div id="logoutModal" class="modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<c:url var="logoutUrl" value="/logout" />
+				<form action="${logoutUrl}" method="post">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Fin de session</h4>
+					</div>
+					<div class="modal-body">
+						<p>Désirez-vous mettre fin à cette session?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Non
+							(Fermer cette fenêtre)</button>
+						<button type="submit" class="btn btn-primary">Oui
+							(Logout)</button>
+						<sec:csrfInput/>
+					</div>
+				</form>
+			</div>
+
+		</div>
 	</div>
 </div>
